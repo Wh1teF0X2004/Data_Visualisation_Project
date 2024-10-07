@@ -4,7 +4,7 @@
   "width": 1000,
   "title": "Arrivals by Gender in Malaysia",
   "data": {
-    "url": "./arrivals_summarized_with_coords.csv"
+    "url": "./Dataset/arrivals_summarized_with_coords.csv"
   },
   "params": [
     {

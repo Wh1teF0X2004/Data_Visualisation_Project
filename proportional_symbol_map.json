@@ -19,7 +19,7 @@
       },
       {
         "data": {
-          "url": "./arrivals_summarized_with_coords.csv"
+          "url": "./Dataset/arrivals_summarized_with_coords.csv"
         },
         "mark": {"type": "circle", "tooltip": {"content": "data"}},
         "encoding": {

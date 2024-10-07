@@ -28,7 +28,7 @@
       }, 
       {
         "data": {
-          "url": "./arrivals_foreign_countries.csv"
+          "url": "./Dataset/arrivals_foreign_countries.csv"
         }, 
         "transform": [
           {

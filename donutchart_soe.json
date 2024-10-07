@@ -6,7 +6,7 @@
       "align": "center"
     },
     "data": {
-      "url": "./arrivals_summarized_with_coords.csv",
+      "url": "./Dataset/arrivals_summarized_with_coords.csv",
       "format": {
         "type": "csv"
       }

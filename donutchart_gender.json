@@ -6,7 +6,7 @@
       "align": "center"
     },
     "data": {
-      "url": "./arrivals_gender.csv",
+      "url": "./Dataset/arrivals_gender.csv",
       "format": {
         "type": "csv"
       }

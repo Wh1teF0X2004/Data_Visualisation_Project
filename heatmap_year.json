@@ -4,7 +4,7 @@
     "width": 500,
     "height": 500,
     "data": {
-        "url": "./arrivals_soe_monthyear.csv",
+        "url": "./Dataset/arrivals_soe_monthyear.csv",
         "format": {"type": "csv"}
     },
     "mark": "rect",
