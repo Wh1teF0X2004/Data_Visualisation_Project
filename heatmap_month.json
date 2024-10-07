@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "description": "Heatmap of Monthly Foreign Arrivals in Malaysian States by Country of Origin",
+    "title": "Monthly Foreign Arrivals in Malaysian States",
     "width": 500,
     "height": 500,
     "data": {
