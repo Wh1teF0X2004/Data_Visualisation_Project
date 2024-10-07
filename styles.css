@@ -48,10 +48,11 @@ p {
 }
 
 .title-container {
-    background-color: #c7c7c7c3; 
-    color: black;
+    background-color: #355c81; 
+    color: white;
     font-size: 3.0rem;
     text-shadow: whitesmoke;
+    width: 70rem;
     padding: 1rem;
     margin-bottom: 2rem;
     border-radius: 15px; 
