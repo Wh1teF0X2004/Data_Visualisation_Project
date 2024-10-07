@@ -51,7 +51,7 @@
             "type": "nominal",
             "title": "State of Entry",
             "scale": {
-              "scheme": "spectral-11"
+              "scheme": "category20c"
             }
           },
           "tooltip": [
