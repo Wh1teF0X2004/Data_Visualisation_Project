@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 500,
+    "width": 1000,
+    "title": "Total Arrivals by State and Month in Malaysia",
+    "data": {
+      "url": "./Dataset/arrivals_soe_monthyear.csv"
+    },
+    "params": [
+      {
+        "name": "year_selection",
+        "value": "2020",
+        "bind": {
+          "input": "select",
+          "options": [
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024"
+          ],
+          "labels": [
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024"
+          ],
+          "name": "Select Year: "
+        }
+      }
+    ],
+    "transform": [
+      { "filter": "datum.year == year_selection" }
+    ],
+    "layer": [
+      {
+        "mark": {
+          "type": "line",
+          "point": true
+        },
+        "encoding": {
+          "x": { "field": "month", "type": "ordinal", "title": "Month" },
+          "y": { 
+            "field": "total_arrivals", 
+            "type": "quantitative",
+            "title": "Total Arrivals"
+          },
+          "color": { 
+            "field": "soe", 
+            "type": "nominal",
+            "title": "State of Entry",
+            "scale": {
+              "scheme": "spectral-11"
+            }
+          },
+          "tooltip": [
+            { "field": "soe", "type": "nominal", "title": "State of Entry" },
+            { "field": "month", "type": "ordinal", "title": "Month" },
+            { "field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals" }
+          ]
+        }
+      }
+    ]
+  }
+  

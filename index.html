@@ -39,7 +39,13 @@
             <p><strong>Map Idiom: </strong>Stacked Bar Chart</p>
         </div>
 
-        <!-- Fourth and Fifth graphs -->
+        <!-- Fourth graph -->
+        <div class="graph-container">
+            <div id="donutchart"></div>
+            <p><strong>Map Idiom: </strong>Donut Chart -  Gender Distribution</p>
+        </div>
+
+        <!-- Fifth and Sixth graphs -->
         <div style="display: flex; gap: 2rem;">
             <div class="graph-container" style="flex: 1;">
                 <div id="heatmap_month"></div>
@@ -70,10 +76,14 @@
         vegaEmbed("#stacked_bar_chart", stacked_bar_chart).catch(console.error);
 
         // Embed the fourth graph: Heatmap - Month
+        var donutchart = "donutchart_gender.json";
+        vegaEmbed("#donutchart", donutchart).catch(console.error);
+
+        // Embed the fifth graph: Heatmap - Month
         var heatmap_month = "heatmap_month.json";
         vegaEmbed("#heatmap_month", heatmap_month).catch(console.error);
 
-        // Embed the fifth graph: Heatmap - Year
+        // Embed the sixth graph: Heatmap - Year
         var heatmap_year = "heatmap_year.json";
         vegaEmbed("#heatmap_year", heatmap_year).catch(console.error);
     </script>
