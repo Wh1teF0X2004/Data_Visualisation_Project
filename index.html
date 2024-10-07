@@ -24,13 +24,13 @@
         <!-- First graph -->
         <div class="graph-container">
             <div id="proportional_symbol_map"></div>
-            <p><strong>Map Idiom: </strong>Proportional Symbol Map - Malaysia View</p>
+            <p><strong>Map Idiom: </strong>Proportional Symbol Map (Malaysia Focus)</p>
         </div>
 
         <!-- Second graph -->
         <div class="graph-container">
-            <div id="proportional_symbol_map_world"></div>
-            <p><strong>Map Idiom: </strong>Proportional Symbol Map - World View</p>
+            <div id="flowmap"></div>
+            <p><strong>Map Idiom: </strong>Flow Map</p>
         </div>
 
         <!-- Third graph -->
@@ -57,13 +57,13 @@
     </div>
 
     <script>
-        // Embed the first graph: Proportional Symbol Map - Malaysia View
+        // Embed the first graph: Proportional Symbol Map
         var proportional_symbol_map = "proportional_symbol_map.json";
         vegaEmbed("#proportional_symbol_map", proportional_symbol_map).catch(console.error);
 
-        // Embed the second graph: Proportional Symbol Map - World view
-        var proportional_symbol_map_world = "worldmap_proportional_symbol_map.json";
-        vegaEmbed("#proportional_symbol_map_world", proportional_symbol_map_world).catch(console.error);
+        // Embed the second graph: Flow Map
+        var flowmap = "flowmap.json";
+        vegaEmbed("#flowmap", flowmap).catch(console.error);
 
         // Embed the third graph: Stacked Bar Chart
         var stacked_bar_chart = "stacked_bar_chart.json";
