@@ -1,0 +1,36 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": {
+      "text": "Total Arrivals by Gender",
+      "fontSize": 13,
+      "align": "center"
+    },
+    "data": {
+      "url": "./arrivals_gender.csv",
+      "format": {
+        "type": "csv"
+      }
+    },
+    "encoding": {
+      "color": {
+        "field": "gender", 
+        "type": "nominal", 
+        "scale": {
+          "range": ["#FC8EAC", "#1f77b4"] 
+        }
+        },
+      "theta": {"field": "total_arrivals", "type": "quantitative"},
+      "tooltip": [
+        {"field": "gender", "title": "State of Entry"},
+        {"field": "total_arrivals", "title": "Total Arrivals"}
+      ]
+    },
+    "mark": {
+      "type": "arc",
+      "innerRadius": 60,
+      "outerRadius": 85,
+      "tooltip": true
+    }
+  }
+
+  

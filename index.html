@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Ever Curious on the status of tourism in Malaysia?</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tourism Insights: Monthly Foreign Arrivals in Malaysia</h1>
+        <h4>Ever Curious on the status of tourism in Malaysia?</h4>
+        <h3>Here we visualise State-Level Tourism Trends of Malayisa by Nationality and Gender.</h3>
+
+        <!-- First graph -->
+        <div class="graph-container">
+            <div id="proportional_symbol_map"></div>
+            <p><strong>Map Idiom: </strong>Proportional Symbol Map - Malaysia View</p>
+        </div>
+
+        <!-- Second graph -->
+        <div class="graph-container">
+            <div id="proportional_symbol_map_world"></div>
+            <p><strong>Map Idiom: </strong>Proportional Symbol Map - World View</p>
+        </div>
+
+        <!-- Third graph -->
+        <div class="graph-container">
+            <div id="stacked_bar_chart"></div>
+            <p><strong>Map Idiom: </strong>Stacked Bar Chart</p>
+        </div>
+
+        <!-- Fourth and Fifth graphs -->
+        <div style="display: flex; gap: 2rem;">
+            <div class="graph-container" style="flex: 1;">
+                <div id="heatmap_month"></div>
+                <p><strong>Map Idiom: </strong>Heatmap - Month</p>
+            </div>
+            <div class="graph-container" style="flex: 1;">
+                <div id="heatmap_year"></div>
+                <p><strong>Map Idiom: </strong>Heatmap - Year</p>
+            </div>
+        </div>
+
+        <p><strong>Author: </strong>Foo Kai Yan (33085625)</p>
+        <p><strong>Contact: </strong>kfoo0012@student.monash.edu OR nicol.fookaiyan@gmail.com</p>
+        <p><strong>Data Source: </strong><u>data.gov.my</u></p>
+    </div>
+
+    <script>
+        // Embed the first graph: Proportional Symbol Map - Malaysia View
+        var proportional_symbol_map = "proportional_symbol_map.json";
+        vegaEmbed("#proportional_symbol_map", proportional_symbol_map).catch(console.error);
+
+        // Embed the second graph: Proportional Symbol Map - World view
+        var proportional_symbol_map_world = "worldmap_proportional_symbol_map.json";
+        vegaEmbed("#proportional_symbol_map_world", proportional_symbol_map_world).catch(console.error);
+
+        // Embed the third graph: Stacked Bar Chart
+        var stacked_bar_chart = "stacked_bar_chart.json";
+        vegaEmbed("#stacked_bar_chart", stacked_bar_chart).catch(console.error);
+
+        // Embed the fourth graph: Heatmap - Month
+        var heatmap_month = "heatmap_month.json";
+        vegaEmbed("#heatmap_month", heatmap_month).catch(console.error);
+
+        // Embed the fifth graph: Heatmap - Year
+        var heatmap_year = "heatmap_year.json";
+        vegaEmbed("#heatmap_year", heatmap_year).catch(console.error);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 1000,
+    "height": 500,
+    "title": "Travel Currents: The Flow of Foreign Tourists Across Malaysia",
+    "projection": {"type": "equalEarth"},
+    "layer": [
+      {
+        "data": {"graticule": {"step": [1, 1]}},
+        "mark": {"type": "geoshape", "stroke": "lightblue", "strokeWidth": 1},
+        "transform": [{"filter": {"and": [{"field": "longitude", "range": [100, 130]}, {"field": "latitude", "range": [-10, 10]}]}}]
+      },
+      {
+        "data": {
+          "url": "./malaysia-states.topojson",
+          "format": {"type": "topojson", "feature": "states"}
+        },
+        "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      },
+      {
+        "data": {
+          "url": "./arrivals_summarized_with_coords.csv"
+        },
+        "mark": {"type": "circle", "tooltip": {"content": "data"}},
+        "encoding": {
+          "longitude": {"field": "longitude", "type": "quantitative"},
+          "latitude": {"field": "latitude", "type": "quantitative"},
+          "size": {
+            "field": "arrivals_all",
+            "type": "quantitative",
+            "title": "Number of Arrivals",
+            "legend": {
+              "title": "Number of Arrivals",
+              "orient": "bottom",  
+              "direction": "horizontal"
+            },
+            "scale": {
+              "type": "threshold",
+              "range": [100, 500, 1000, 1500, 2000],
+              "domain": [30000, 300000, 3000000, 30000000]
+            }
+          },
+          "color": {
+            "field": "arrivals_all",
+            "type": "quantitative",
+            "scale": {
+              "domain": [30000, 300000, 3000000, 30000000],
+              "scheme": "cividis"
+            },
+            "legend": {
+              "title": "Number of Arrivals",
+              "orient": "bottom", 
+              "direction": "horizontal"
+            }
+          },
+          "tooltip": [
+            {"field": "soe", "type": "nominal", "title": "State of Entrance"},
+            {"field": "arrivals_all", "type": "quantitative", "title": "Total Number of Arrivals"},
+            {"field": "arrivals_male", "type": "quantitative", "title": "Total Number of Male Arrivals"},
+            {"field": "arrivals_female", "type": "quantitative", "title": "Total Number of Female Arrivals"}
+          ]
+        }
+      }
+    ]
+  }
+  

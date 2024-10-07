@@ -1,0 +1,23 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Heatmap of Monthly Foreign Arrivals in Malaysian States by Country of Origin",
+    "width": 500,
+    "height": 500,
+    "data": {
+        "url": "./arrivals_soe_monthyear.csv",
+        "format": {"type": "csv"}
+    },
+    "mark": "rect",
+    "encoding": {
+        "y": {"field": "soe", "type": "ordinal", "title": "State of Entry (SoE)"},
+        "x": {"field": "month", "type": "ordinal", "title": "Month"},
+        "color": {"field": "total_arrivals", "type": "quantitative",
+            "scale": {"scheme": "cividis"}
+        },
+        "tooltip": [
+            { "field": "soe", "type": "ordinal", "title": "State of Entry" },
+            { "field": "month", "type": "ordinal", "title": "Month" },
+            { "field": "total_arrivals", "type": "quantitative", "title": "Total Foreign Arrivals" }
+        ]
+    }
+}
