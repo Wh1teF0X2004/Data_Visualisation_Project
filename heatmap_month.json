@@ -11,7 +11,7 @@
     "encoding": {
         "y": {"field": "soe", "type": "ordinal", "title": "State of Entry (SoE)"},
         "x": {"field": "month", "type": "ordinal", "title": "Month"},
-        "color": {"field": "total_arrivals", "type": "quantitative",
+        "color": {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals",
             "scale": {"scheme": "cividis"}
         },
         "tooltip": [

@@ -43,7 +43,7 @@
         "mark": {
           "type": "line", 
           "color": "black",
-          "strokeWidth": 7, 
+          "strokeWidth": 10, 
           "interpolate": "step"  
         }, 
         "encoding": {
