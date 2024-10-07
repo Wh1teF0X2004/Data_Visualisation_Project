@@ -45,7 +45,7 @@
             "type": "quantitative",
             "scale": {
               "domain": [300, 3000, 30000, 300000, 3000000, 30000000],
-              "scheme": "cividis"
+              "scheme": "blues"
             },
             "legend": {
               "title": "Number of Arrivals",

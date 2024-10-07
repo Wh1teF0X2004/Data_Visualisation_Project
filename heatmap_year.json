@@ -12,7 +12,7 @@
         "y": {"field": "soe", "type": "ordinal", "title": "State of Entry (SoE)"},
         "x": {"field": "year", "type": "ordinal", "title": "Year"},
         "color": {"field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals",
-            "scale": {"scheme": "cividis"}
+            "scale": {"scheme": "blues"}
         },
         "tooltip": [
             { "field": "soe", "type": "ordinal", "title": "State of Entry" },
