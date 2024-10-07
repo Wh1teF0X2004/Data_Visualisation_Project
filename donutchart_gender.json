@@ -1,34 +1,50 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 500,
-    "title": "Tourist Gender Distribution",
-    "data": {
-      "url": "./Dataset/arrivals_gender.csv",
-      "format": {
-        "type": "csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 500,
+  "title": "Tourist Gender Distribution",
+  "data": {
+    "url": "./Dataset/arrivals_gender.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "encoding": {
+    "color": {
+      "field": "gender", 
+      "type": "nominal", 
+      "scale": {
+        "range": ["#FC8EAC", "#1f77b4"] 
       }
     },
-    "encoding": {
-      "color": {
-        "field": "gender", 
-        "type": "nominal", 
-        "scale": {
-          "range": ["#FC8EAC", "#1f77b4"] 
-        }
-        },
-      "theta": {"field": "total_arrivals", "type": "quantitative"},
-      "tooltip": [
-        {"field": "gender", "title": "State of Entry"},
-        {"field": "total_arrivals", "title": "Total Arrivals"}
-      ]
+    "theta": {"field": "total_arrivals", "type": "quantitative"},
+    "tooltip": [
+      {"field": "gender", "title": "State of Entry"},
+      {"field": "total_arrivals", "title": "Total Arrivals"}
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "arc",
+        "innerRadius": 100,
+        "outerRadius": 180,
+        "tooltip": true
+      }
     },
-    "mark": {
-      "type": "arc",
-      "innerRadius": 60,
-      "outerRadius": 85,
-      "tooltip": true
+    {
+      "mark": {
+        "type": "text",
+        "text": "Total Arrivals: \n70,577,895",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 15,
+        "color": "black"
+      },
+      "encoding": {
+        "x": {"value": 250},
+        "y": {"value": 250}
+      }
     }
-  }
-
-  
+  ]
+}
