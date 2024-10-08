@@ -92,9 +92,15 @@ p {
 #proportional_symbol_map_world,
 #stacked_bar_chart,
 #donutchart,
-#heatmap_month,
-#heatmap_year,
+/* #heatmap_month,
+#heatmap_year, */
 #linechart {
     width: 100%;
     height: auto;
+}
+
+#heatmap_month,
+#heatmap_year {
+    width: 100%;
+    height: 100%; /* Ensure the heatmap fits within the container */
 }
