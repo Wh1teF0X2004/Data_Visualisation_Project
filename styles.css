@@ -48,7 +48,7 @@ p {
 }
 
 .text-container {
-    width: 400px; 
+    width: 85rem;
     height: auto;
     overflow: auto; 
     background-color: #c7c7c783;
@@ -82,6 +82,10 @@ p {
     margin-bottom: 2rem;
     border-radius: 15px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 85rem; 
+    height: auto;
+    max-width: 85rem;
+    box-sizing: border-box; 
 }
 
 #proportional_symbol_map,

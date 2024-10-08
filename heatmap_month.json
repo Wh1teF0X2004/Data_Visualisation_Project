@@ -17,7 +17,7 @@
         "tooltip": [
             { "field": "soe", "type": "ordinal", "title": "State of Entry" },
             { "field": "month", "type": "ordinal", "title": "Month" },
-            { "field": "total_arrivals", "type": "quantitative", "title": "Total Foreign Arrivals" }
+            { "field": "total_arrivals", "type": "quantitative", "title": "Total Foreign Arrivals", "format": "," }
         ]
     }
 }

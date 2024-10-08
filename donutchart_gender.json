@@ -20,7 +20,7 @@
     "theta": {"field": "total_arrivals", "type": "quantitative"},
     "tooltip": [
       {"field": "gender", "title": "State of Entry"},
-      {"field": "total_arrivals", "title": "Total Arrivals"}
+      {"field": "total_arrivals", "title": "Total Arrivals", "format": ","}
     ]
   },
   "layer": [

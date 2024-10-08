@@ -55,9 +55,9 @@
           },
           "tooltip": [
             {"field": "soe", "type": "nominal", "title": "State of Entrance"},
-            {"field": "arrivals_all", "type": "quantitative", "title": "Total Number of Arrivals"},
-            {"field": "arrivals_male", "type": "quantitative", "title": "Total Number of Male Arrivals"},
-            {"field": "arrivals_female", "type": "quantitative", "title": "Total Number of Female Arrivals"}
+            {"field": "arrivals_all", "type": "quantitative", "title": "Total Number of Arrivals", "format": ","},
+            {"field": "arrivals_male", "type": "quantitative", "title": "Total Number of Male Arrivals", "format": ","},
+            {"field": "arrivals_female", "type": "quantitative", "title": "Total Number of Female Arrivals", "format": ","}
           ]
         }
       }

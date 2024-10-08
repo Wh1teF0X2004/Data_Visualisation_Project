@@ -91,8 +91,8 @@
         },
         "tooltip": [
           {"field": "soe", "title": "State"},
-          {"field": "arrivals_male", "title": "Male Arrivals"},
-          {"field": "arrivals_female", "title": "Female Arrivals"}
+          {"field": "arrivals_male", "title": "Male Arrivals", "format": ","},
+          {"field": "arrivals_female", "title": "Female Arrivals", "format": ","}
         ]
       }
     },
@@ -131,8 +131,8 @@
         },
         "tooltip": [
           {"field": "soe", "title": "State"},
-          {"field": "arrivals_male", "title": "Male Arrivals"},
-          {"field": "arrivals_female", "title": "Female Arrivals"}
+          {"field": "arrivals_male", "title": "Male Arrivals", "format": ","},
+          {"field": "arrivals_female", "title": "Female Arrivals", "format": ","}
         ]
       }
     },
