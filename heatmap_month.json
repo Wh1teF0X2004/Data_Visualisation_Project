@@ -1,7 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Monthly Foreign Arrivals in Malaysian States",
-    "width": 500,
+    "width": "container",
     "height": 500,
     "data": {
         "url": "./Dataset/arrivals_soe_monthyear.csv",
