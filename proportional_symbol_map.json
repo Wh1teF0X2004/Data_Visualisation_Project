@@ -1,6 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": "container",
+    "width": 1000,
     "height": 500,
     "title": "Travel Currents: The Flow of Foreign Tourists Across Malaysia",
     "projection": {"type": "equalEarth"},
