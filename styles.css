@@ -2,7 +2,10 @@ body {
     margin: 0;
     padding: 0;
     background-color: #92A0AD;
-    background-image: url('../Assets/clock.jpg');
+    background-image: url('./Assets/sky.jpg');
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center;
     font-family: 'Baskerville', 'Times New Roman', Times, serif;
     padding: 2rem; 
     box-sizing: border-box; 
@@ -66,7 +69,7 @@ p {
 }
 
 .title-container {
-    background-color: #355c81; 
+    background-color: #355c81af; 
     color: white;
     font-size: 3.0rem;
     text-shadow: whitesmoke;
