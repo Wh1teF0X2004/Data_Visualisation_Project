@@ -2,6 +2,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #92A0AD;
+    background-image: url('../Assets/clock.jpg');
     font-family: 'Baskerville', 'Times New Roman', Times, serif;
     padding: 2rem; 
     box-sizing: border-box; 

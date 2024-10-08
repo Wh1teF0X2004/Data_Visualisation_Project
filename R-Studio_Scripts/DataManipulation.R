@@ -72,3 +72,32 @@ print(new_summarized_data)
 
 # Export to CSV file to be used for Vegalite
 write.csv(new_summarized_data, "arrivals_gender.csv", row.names = FALSE)
+
+################################################################################
+# Manipulate to have soe, country, month, year
+################################################################################
+# Read CSV file
+head(data)
+
+# Ensure the date column is in date format before extraction
+data$date <- as.Date(data$date, format = "%Y-%m-%d")  # Originally YYYY-MM-DD format
+
+# Extract the month and year from the date
+data$month_num <- format(data$date, "%m")  # Extract month number
+data$month <- format(data$date, "%B")  # Extract full month name
+data$year <- format(data$date, "%Y")  # Extract year
+
+# Summarize data and include the country column
+summary_data <- data %>%
+  group_by(soe, country, month, month_num, year) %>%
+  summarise(
+    total_arrivals = sum(arrivals, na.rm = TRUE),
+    arrivals_male = sum(arrivals_male, na.rm = TRUE),
+    arrivals_female = sum(arrivals_female, na.rm = TRUE)
+  )
+
+# Check output before exporting to CSV file
+print(summary_data)
+
+# Export to CSV file to be used for Vegalite
+write.csv(summary_data, "arrivals_soe_monthyear_country.csv", row.names = FALSE)
