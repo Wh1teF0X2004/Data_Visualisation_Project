@@ -1,66 +1,146 @@
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json", 
-  "height": 500,
-  "width": 1000, 
-  "title": "Tourist Arrivals to Malaysia",
-  "projection": {"type": "equirectangular"}, 
-  "layer": [
-    {
-      "data": {
-        "url": "./oceans.topojson", 
-        "format": {"type": "topojson", "feature": "oceans"}
-      }, 
-      "mark": {"type": "geoshape", "fill": "cornflowerblue"}
-    },
-    {
-      "data": {
-        "url": "./WorldMapWithGraticules.topojson", 
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
-      }, 
-      "mark": {"type": "geoshape", "fill": "lightslategray", "stroke": "white"}
-    }, 
-    {
-      "data": {
-        "url": "./WorldMapWithGraticules.topojson", 
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
-      }, 
-      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
-    }, 
-    {
-      "data": {
-        "url": "./Dataset/arrivals_foreign_countries.csv"
-      }, 
-      "transform": [
-        {
-          "calculate": "112.5183", 
-          "as": "target_longitude"
-        },
-        {
-          "calculate": "2.1976", 
-          "as": "target_latitude"
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 500,
+    "width": 1000, 
+    "config": {
+        "style": {
+            "cell": {
+                "stroke": "transparent"
+            }
         }
-      ], 
-      "mark": {
-        "type": "line", 
-        "color": "black",
-        "strokeWidth": 2, 
-        "interpolate": "monotone"  
-      }, 
-      "encoding": {
-        "longitude": {"field": "longitude", "type": "quantitative"}, 
-        "latitude": {"field": "latitude", "type": "quantitative"},   
-        "longitude2": {"field": "target_longitude"},  
-        "latitude2": {"field": "target_latitude"},  
-        "size": {
-          "field": "total_arrival", 
-          "type": "quantitative", 
-          "title": "Arrival Counts"
+    },
+    "padding": {
+        "top": -50
+    },
+    "projection": {
+        "type": "equirectangular",
+        "scale": {"expr": "zoom_level"},  
+        "center": [112.5183, 2.1976]
+    },
+    "params": [
+        {
+            "name": "zoom_level",
+            "value": 1000,
+            "bind": {
+                "input": "range",
+                "min": 100,
+                "max": 10000,
+                "step": 10,
+                "name": "Zoom: "
+            }
         },
-        "tooltip": [
-          {"field": "country", "type": "nominal", "title": "Country"},
-          {"field": "total_arrival", "type": "quantitative", "format": ",", "title": "Total Arrivals"}
-        ]
-      }
-    }
-  ]
+        {
+            "name": "rank_slider",
+            "value": 20,
+            "bind": {
+                "input": "range",
+                "min": 5,
+                "max": 50,
+                "step": 1,
+                "name": "Top Rankings: "
+            }
+        }
+    ],
+    "layer": [
+        {
+            "data": {
+                "url": "./oceans.topojson",
+                "format": {"type": "topojson", "feature": "oceans"}
+            },
+            "mark": {
+                "type": "geoshape",
+                "fill": "#7dd2f4",
+                "stroke": "white"
+            }
+        },
+        {
+            "data": {
+                "url": "./ne_50m.topojson",
+                "format": {
+                    "type": "topojson",
+                    "feature": "ne_50m_admin_0_countries"
+                }
+            },
+            "transform": [
+                {
+                    "lookup": "properties.NAME",
+                    "from": {
+                        "data": {
+                            "url": "./Dataset/flowmap_dataset.csv"
+                        },
+                        "key": "country_name",
+                        "fields": ["country_name", "total_arrivals"]
+                    },
+                    "as": ["matched_country", "total_arrivals"]
+                }
+            ],
+            "mark": {
+                "type": "geoshape",
+                "stroke": "white"
+            },
+            "encoding": {
+                "color": {
+                    "condition": {
+                        "test": "datum.matched_country != null",
+                        "value": "#3A50F2"
+                    },
+                    "value": "#BFBFBF"
+                }
+            }
+        },
+        {
+            "data": {
+                "url": "./ne_50m.topojson",
+                "format": {"type": "topojson", "feature": "ne_50m_graticules_30"}
+            },
+            "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+        },
+        {
+            "data": {
+                "url": "./Dataset/flowmap_dataset.csv"
+            },
+            "transform": [
+                {
+                    "filter": "datum.ranking <= rank_slider"
+                },
+                {
+                    "calculate": "4.2105",
+                    "as": "origin_latitude"
+                },
+                {
+                    "calculate": "101.9758",
+                    "as": "origin_longitude"
+                }
+            ],
+            "mark": {
+                "type": "rule",
+                "color": "#a06bcf",
+                "strokeCap": "butt",
+                "strokeOpacity": 0.7
+            },
+            "encoding": {
+                "longitude": {
+                    "field": "origin_longitude",
+                    "type": "quantitative"
+                },
+                "latitude": {
+                    "field": "origin_latitude",
+                    "type": "quantitative"
+                },
+                "longitude2": {"field": "longitude"},
+                "latitude2": {"field": "latitude"},
+                "strokeWidth": {
+                    "field": "total_arrivals",
+                    "type": "quantitative",
+                    "scale": {"range": [2, 100]},
+                    "legend": null
+                },
+                "tooltip": [
+                    {"field": "country_name", "title": "Country"},
+                    {"field": "total_arrivals", "title": "Total Tourist Arrivals", "format": ",d"},
+                    {"field": "ranking", "title": "Ranking"}
+                ]
+            }
+        }
+    ]
 }

@@ -11,11 +11,12 @@
   },
   "encoding": {
     "color": {
-      "field": "gender", 
-      "type": "nominal", 
+      "field": "gender",
+      "type": "nominal",
       "scale": {
-        "range": ["#FC8EAC", "#1f77b4"] 
-      }
+        "range": ["#FC8EAC", "#1f77b4"]
+      },
+      "legend": {"title": "Gender"}
     },
     "theta": {"field": "total_arrivals", "type": "quantitative"},
     "tooltip": [
@@ -30,6 +31,26 @@
         "innerRadius": 100,
         "outerRadius": 180,
         "tooltip": true
+      },
+      "selection": {
+        "gender_selection": {
+          "type": "multi",
+          "fields": ["gender"],
+          "bind": "legend"
+        }
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "param": "gender_selection",
+            "field": "gender",
+            "type": "nominal",
+            "scale": {
+              "range": ["#FC8EAC", "#1f77b4"]
+            }
+          },
+          "value": "lightgray"
+        }
       }
     },
     {

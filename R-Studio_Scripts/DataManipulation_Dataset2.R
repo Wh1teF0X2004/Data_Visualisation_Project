@@ -32,6 +32,8 @@ new_data <- another_data %>%
 # Check the output before exporting to CSV file
 head(new_data)
 
+unique(another_data$Country)
+
 # Export to a new CSV file for use with Vega-Lite
 write.csv(new_data, "filtered_by_holiday_activities.csv", row.names = FALSE)
 

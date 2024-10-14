@@ -10,7 +10,7 @@
 | Final Submission         | https://wh1tef0x2004.github.io/Data_Visualisation_Project/    | nicol.fookaiyan@gmail.com |
 
 # Dataset Information
-- Original dataset obtained from: https://data.gov.my/data-catalogue/arrivals_soe
+- Original dataset obtained from: https://data.gov.my/data-catalogue/arrivals_soe and https://archive.data.gov.my/data/dataset/main-purpose-of-visit 
     - Details on longitude and latitude of each states and countries where obtained from Google Search and Wikipedia
 - Dataset Author: The Immigration Department of Malaysia
 - Official Dataset Description: Monthly foreign arrivals in Malaysia by state of entry, nationality and sex
