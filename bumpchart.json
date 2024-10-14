@@ -7,20 +7,6 @@
       "url": "./Dataset/ranking_soe_by_popularity.csv"
     },
     "view": {"stroke": null},
-    "transform": [{"filter": "datum.rank <= rank_slider"}],
-    "params": [
-      {
-        "name": "rank_slider",
-        "value": 14,
-        "bind": {
-          "input": "range",
-          "min": 5,
-          "max": 14,
-          "step": 1,
-          "name": "Top State Rankings: "
-        }
-      }
-    ],
     "layer": [
       {
         "mark": {"type": "line", "strokeWidth": 3, "opacity": 1},
@@ -41,7 +27,6 @@
             "type": "quantitative",
             "title": "Rank",
             "scale": {
-              "domain": {"expr": "[1, rank_slider+1]"},
               "reverse": true,
               "zero": false
             },
@@ -52,7 +37,6 @@
               "tickMinStep": 1,
               "labelFontSize": 12,
               "titleFontSize": 15,
-              "values": {"expr": "sequence(1, rank_slider+0.3)"},
               "format": "d"
             }
           },

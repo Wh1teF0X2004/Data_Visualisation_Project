@@ -1,66 +1,100 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 400,
-    "height": 400,
+    "width": "container",
+    "height": 350,
     "data": {
-      "url": "./Dataset/filtered_holiday_activities.csv"
+      "url": "./Dataset/main-purpose-of-visit.csv"
     },
     "transform": [
+      {"filter": "datum.Total != null"},
       {
-        "aggregate": [
-          {
-            "op": "sum",
-            "field": "Tourist_Arrivals",
-            "as": "Total_Arrivals"
-          }
+        "fold": [
+          "Singapore", "Thailand", "Indonesia", "Brunei", "Philippines", "Vietnam",
+          "China", "Japan", "South Korea", "Taiwan", "India", "Pakistan",
+          "Saudi Arabia", "United Arab Emirates", "Oman", "Kuwait", "Iran",
+          "Canada", "United States", "United Kingdom", "Ireland", "Sweden",
+          "Denmark", "Finland", "Norway", "Italy", "Spain", "France", "Belgium",
+          "Netherland", "Germany", "Switzerland", "Russia", "Australia",
+          "New Zealand", "South Africa", "Central Asia", "Other Asean",
+          "Other East Asia", "Other South Asia", "Other West Asia",
+          "Other Americas", "Other Europe", "Others"
         ],
-        "groupby": ["Major_Activities"]
+        "as": ["Country", "Total"]
+      },
+      {
+        "filter": "selected_country == 'All' || datum.Country == selected_country"
+      },
+      {
+        "aggregate": [{"op": "sum", "field": "Total", "as": "TotalVisitors"}],
+        "groupby": ["Main Purpose of Visit"]
       }
     ],
     "params": [
       {
-        "name": "activity_selection",
-        "select": {"type": "point", "fields": ["Major_Activities"], "on": "click"}
+        "name": "product_highlight",
+        "select": {
+          "type": "point",
+          "fields": ["Main Purpose of Visit"],
+          "on": "click",
+          "empty": "none"
+        }
       },
       {
-        "name": "Legend_highlight",
-        "select": {"type": "point", "fields": ["Major_Activities"]},
+        "name": "selected_country",
+        "value": "All",
+        "bind": {
+          "input": "select",
+          "options": [
+            "All", "Singapore", "Thailand", "Indonesia", "Brunei", "Philippines",
+            "Vietnam", "China", "Japan", "South Korea", "Taiwan", "India",
+            "Pakistan", "Saudi Arabia", "United Arab Emirates", "Oman", "Kuwait",
+            "Iran", "Canada", "United States", "United Kingdom", "Ireland",
+            "Sweden", "Denmark", "Finland", "Norway", "Italy", "Spain", "France",
+            "Belgium", "Netherland", "Germany", "Switzerland", "Russia", "Australia",
+            "New Zealand", "South Africa", "Central Asia", "Other Asean",
+            "Other East Asia", "Other South Asia", "Other West Asia", "Other Americas",
+            "Other Europe", "Others"
+          ],
+          "name": "Select Country: "
+        }
+      },
+      {
+        "name": "legend_highlight",
+        "select": {"type": "point", "fields": ["Main Purpose of Visit"]},
         "bind": "legend"
       }
     ],
-    "layer": [
-      {
-        "mark": {
-          "type": "arc",
-          "innerRadius": 20,
-          "stroke": "#fff",
-          "tooltip": true
-        },
-        "encoding": {
-          "theta": {"field": "Total_Arrivals", "type": "quantitative"},
-          "radius": {
-            "field": "Total_Arrivals",
-            "scale": {"type": "sqrt", "range": [0, 160], "zero": true}
-          },
-          "color": {
-            "field": "Major_Activities",
-            "type": "nominal",
-            "scale": {"scheme": "purplebluegreen"}
-          },
-          "opacity": {
-            "condition": {"param": "Legend_highlight", "value": 0.9},
-            "value": 0.2
-          },
-          "tooltip": [
-            {"field": "Major_Activities", "type": "nominal", "title": "Tourism Activities"},
-            {
-              "field": "Total_Arrivals",
-              "type": "quantitative",
-              "title": "Total Tourist Arrivals",
-              "format": ","
-            }
+    "mark": {"type": "arc", "innerRadius": 50, "tooltip": true},
+    "encoding": {
+      "theta": {"field": "TotalVisitors", "type": "quantitative"},
+      "color": {
+        "field": "Main Purpose of Visit",
+        "type": "nominal",
+        "scale": {
+          "range": [
+            "#ffffcc", "#fee090", "#feb24c", "#fdae6b", "#f16913", "#fd8d3c",
+            "#8e0152", "#c51b7d", "#de77ae", "#f1b6da", "#fde0ef", "#d7b5d8",
+            "#7fbc41", "#4d9221", "#276419", "#80cdc1", "#35978f"
           ]
         }
-      }
-    ]
+      },
+      "opacity": {
+        "condition": {"param": "legend_highlight", "value": 0.9},
+        "value": 0.2
+      },
+      "tooltip": [
+        {
+          "field": "Main Purpose of Visit",
+          "type": "nominal",
+          "title": "Main Purpose of Visit"
+        },
+        {
+          "field": "TotalVisitors",
+          "type": "quantitative",
+          "title": "Total Visitors (Thousands)",
+          "format": ",.0f"
+        }
+      ]
+    }
   }
+  

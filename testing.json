@@ -1,0 +1,137 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 350,
+  "data": {
+    "url": "./Dataset/main-purpose-of-visit.csv"
+  },
+  "transform": [
+    {"filter": "datum.Total != null"},
+    {
+      "fold": [
+        "Singapore", "Thailand", "Indonesia", "Brunei", "Philippines", 
+        "Vietnam", "China", "Japan", "South Korea", "Taiwan", 
+        "India", "Pakistan", "Saudi Arabia", "United Arab Emirates", 
+        "Oman", "Kuwait", "Iran", "Canada", "United States", 
+        "United Kingdom", "Ireland", "Sweden", "Denmark", 
+        "Finland", "Norway", "Italy", "Spain", "France", 
+        "Belgium", "Netherland", "Germany", "Switzerland", 
+        "Russia", "Australia", "New Zealand", "South Africa", 
+        "Central Asia", "Other Asean", "Other East Asia", 
+        "Other South Asia", "Other West Asia", "Other Americas", 
+        "Other Europe", "Others"
+      ],
+      "as": ["Country", "Total"]
+    },
+    {
+      "filter": "country_selection == 'All' || datum.Country == country_selection"
+    },
+    {
+      "aggregate": [{"op": "sum", "field": "Total", "as": "TotalVisitors"}],
+      "groupby": ["Main Purpose of Visit"]
+    }
+  ],
+  "params": [
+    {
+      "name": "countrySelection",  
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Singapore", "Thailand", "Indonesia", "Brunei", "Philippines", 
+          "Vietnam", "China", "Japan", "South Korea", "Taiwan", 
+          "India", "Pakistan", "Saudi Arabia", "United Arab Emirates", 
+          "Oman", "Kuwait", "Iran", "Canada", "United States", 
+          "United Kingdom", "Ireland", "Sweden", "Denmark", 
+          "Finland", "Norway", "Italy", "Spain", "France", 
+          "Belgium", "Netherland", "Germany", "Switzerland", 
+          "Russia", "Australia", "New Zealand", "South Africa", 
+          "Central Asia", "Other Asean", "Other East Asia", 
+          "Other South Asia", "Other West Asia", "Other Americas", 
+          "Other Europe", "Others"
+        ],
+        "name": "Select Country: "
+      }
+    },
+    {
+      "name": "highlightParam",  
+      "select": {
+        "type": "point",
+        "fields": ["Main Purpose of Visit"],
+        "on": "click",
+        "empty": "none"
+      },
+      "bind": "legend"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"},
+      "encoding": {
+        "theta": {"field": "TotalVisitors", "type": "quantitative"},
+        "color": {
+          "field": "Main Purpose of Visit",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#ffffcc", "#fee090", "#feb24c", "#fdae6b", "#f16913", 
+              "#fd8d3c", "#8e0152", "#c51b7d", "#de77ae", "#f1b6da", 
+              "#fde0ef", "#d7b5d8", "#7fbc41", "#4d9221", "#276419", 
+              "#80cdc1", "#35978f"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"param": "highlightParam", "value": 0.9},
+          "value": 0.2
+        },
+        "tooltip": [
+          {
+            "field": "Main Purpose of Visit",
+            "type": "nominal",
+            "title": "Main Purpose of Visit"
+          },
+          {
+            "field": "TotalVisitors",
+            "type": "quantitative",
+            "title": "Total Visitors (Thousands)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {"type": "text", "radiusOffset": 30},
+      "encoding": {
+        "text": {"field": "Main Purpose of Visit", "type": "nominal"},
+        "theta": {"field": "TotalVisitors", "type": "quantitative"},
+        "color": {
+          "field": "Main Purpose of Visit",
+          "type": "nominal",
+          "scale": {
+            "range": [
+              "#ffffcc", "#fee090", "#feb24c", "#fdae6b", "#f16913", 
+              "#fd8d3c", "#8e0152", "#c51b7d", "#de77ae", "#f1b6da", 
+              "#fde0ef", "#d7b5d8", "#7fbc41", "#4d9221", "#276419", 
+              "#80cdc1", "#35978f"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "Main Purpose of Visit",
+            "type": "nominal",
+            "title": "Main Purpose of Visit"
+          },
+          {
+            "field": "TotalVisitors",
+            "type": "quantitative",
+            "title": "Total Visitors (Thousands)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ]
+}
