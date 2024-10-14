@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "height": 500,
-  "width": "container",
+  "width": 1000,
   "title": "Arrivals by Gender in Malaysia",
   "data": {
     "url": "./Dataset/arrivals_summarized_with_coords.csv"
@@ -29,7 +29,7 @@
           "W.P. Labuan"
         ],
         "labels": [
-          "None",
+          "Select State Here",
           "Johor",
           "Kedah",
           "Kelantan",
@@ -76,18 +76,14 @@
           "axis": {"grid": true}
         },
         "color": {
-          "condition": {
-            "test": "datum.soe === selectedState",
-            "value": "#1f77b4"
-          },
-          "value": "#D3D3D3"
+          "value": "#1f77b4" 
         },
         "opacity": {
           "condition": {
             "test": "datum.soe === selectedState || selectedState === null",
             "value": 1
           },
-          "value": 0.5
+          "value": 1
         },
         "tooltip": [
           {"field": "soe", "title": "State"},
@@ -116,18 +112,14 @@
           "axis": {"grid": false, "tickCount": 6}
         },
         "color": {
-          "condition": {
-            "test": "datum.soe === selectedState",
-            "value": "#FC8EAC"
-          },
-          "value": "#D3D3D3"
+          "value": "#FC8EAC"
         },
         "opacity": {
           "condition": {
             "test": "datum.soe === selectedState || selectedState === null",
             "value": 1
           },
-          "value": 0.5
+          "value": 1  
         },
         "tooltip": [
           {"field": "soe", "title": "State"},

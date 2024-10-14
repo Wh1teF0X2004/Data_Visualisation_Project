@@ -1,0 +1,14 @@
+# Load necessary library
+library(dplyr)
+
+# Read the data from the CSV file
+data <- read.csv("holiday_activities.csv")
+
+# Select the required columns: Major_Activities, Year, Country, Tourist_Arrivals
+new_data <- data %>% select(Major_Activities, Year, Country, Tourist_Arrivals)
+
+# Check output before exporting to CSV file
+head(new_data)
+
+# Export to CSV file to be used for Vegalite
+write.csv(new_data, "filtered_holiday_activities.csv", row.names = FALSE)

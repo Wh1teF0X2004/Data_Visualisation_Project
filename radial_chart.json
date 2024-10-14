@@ -1,0 +1,66 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 400,
+    "height": 400,
+    "data": {
+      "url": "./Dataset/filtered_holiday_activities.csv"
+    },
+    "transform": [
+      {
+        "aggregate": [
+          {
+            "op": "sum",
+            "field": "Tourist_Arrivals",
+            "as": "Total_Arrivals"
+          }
+        ],
+        "groupby": ["Major_Activities"]
+      }
+    ],
+    "params": [
+      {
+        "name": "activity_selection",
+        "select": {"type": "point", "fields": ["Major_Activities"], "on": "click"}
+      },
+      {
+        "name": "Legend_highlight",
+        "select": {"type": "point", "fields": ["Major_Activities"]},
+        "bind": "legend"
+      }
+    ],
+    "layer": [
+      {
+        "mark": {
+          "type": "arc",
+          "innerRadius": 20,
+          "stroke": "#fff",
+          "tooltip": true
+        },
+        "encoding": {
+          "theta": {"field": "Total_Arrivals", "type": "quantitative"},
+          "radius": {
+            "field": "Total_Arrivals",
+            "scale": {"type": "sqrt", "range": [0, 160], "zero": true}
+          },
+          "color": {
+            "field": "Major_Activities",
+            "type": "nominal",
+            "scale": {"scheme": "purplebluegreen-7"}
+          },
+          "opacity": {
+            "condition": {"param": "Legend_highlight", "value": 0.9},
+            "value": 0.2
+          },
+          "tooltip": [
+            {"field": "Major_Activities", "type": "nominal", "title": "Tourism Activities"},
+            {
+              "field": "Total_Arrivals",
+              "type": "quantitative",
+              "title": "Total Tourist Arrivals",
+              "format": ","
+            }
+          ]
+        }
+      }
+    ]
+  }

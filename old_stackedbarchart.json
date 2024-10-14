@@ -1,0 +1,179 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "height": 500,
+    "width": "container",
+    "title": "Arrivals by Gender in Malaysia",
+    "data": {
+      "url": "./Dataset/arrivals_summarized_with_coords.csv"
+    },
+    "params": [
+      {
+        "name": "selectedState",
+        "bind": {
+          "input": "select",
+          "options": [
+            null,
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Perak",
+            "Perlis",
+            "Pulau Pinang",
+            "Sabah",
+            "Sarawak",
+            "Selangor",
+            "Terengganu",
+            "W.P. Labuan"
+          ],
+          "labels": [
+            "None",
+            "Johor",
+            "Kedah",
+            "Kelantan",
+            "Melaka",
+            "Negeri Sembilan",
+            "Pahang",
+            "Perak",
+            "Perlis",
+            "Pulau Pinang",
+            "Sabah",
+            "Sarawak",
+            "Selangor",
+            "Terengganu",
+            "W.P. Labuan"
+          ],
+          "name": "Select a State: "
+        }
+      }
+    ],
+    "transform": [
+      {
+        "calculate": "datum.arrivals_male + datum.arrivals_female",
+        "as": "total_arrivals"
+      }
+    ],
+    "layer": [
+      {
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "soe",
+            "type": "ordinal",
+            "title": "State",
+            "sort": {
+              "field": "total_arrivals",
+              "order": "descending"
+            }
+          },
+          "x": {
+            "field": "arrivals_male",
+            "type": "quantitative",
+            "title": "Male Arrivals",
+            "scale": {"domain": [0, 25000000]},
+            "axis": {"grid": true}
+          },
+          "color": {
+            "condition": {
+              "test": "datum.soe === selectedState",
+              "value": "#1f77b4"
+            },
+            "value": "#D3D3D3"
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum.soe === selectedState || selectedState === null",
+              "value": 1
+            },
+            "value": 0.5
+          },
+          "tooltip": [
+            {"field": "soe", "title": "State"},
+            {"field": "arrivals_male", "title": "Male Arrivals", "format": ","},
+            {"field": "arrivals_female", "title": "Female Arrivals", "format": ","}
+          ]
+        }
+      },
+      {
+        "mark": "bar",
+        "encoding": {
+          "y": {
+            "field": "soe",
+            "type": "ordinal",
+            "title": "State",
+            "sort": {
+              "field": "total_arrivals",
+              "order": "descending"
+            }
+          },
+          "x": {
+            "field": "arrivals_female",
+            "type": "quantitative",
+            "title": "Female Arrivals",
+            "scale": {"domain": [0, 25000000]},
+            "axis": {"grid": false, "tickCount": 6}
+          },
+          "color": {
+            "condition": {
+              "test": "datum.soe === selectedState",
+              "value": "#FC8EAC"
+            },
+            "value": "#D3D3D3"
+          },
+          "opacity": {
+            "condition": {
+              "test": "datum.soe === selectedState || selectedState === null",
+              "value": 1
+            },
+            "value": 0.5
+          },
+          "tooltip": [
+            {"field": "soe", "title": "State"},
+            {"field": "arrivals_male", "title": "Male Arrivals", "format": ","},
+            {"field": "arrivals_female", "title": "Female Arrivals", "format": ","}
+          ]
+        }
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.soe === selectedState || selectedState === null"
+          },
+          {
+            "calculate": "'Total arrivals for ' + datum.soe + ': is ' + format(datum.total_arrivals, ',.0f')",
+            "as": "text_annotation_raw"
+          },
+          {
+            "calculate": "split(datum.text_annotation_raw, ':')",
+            "as": "text_annotation"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "dx": 5,
+          "dy": -5,
+          "baseline": "middle",
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {
+            "field": "text_annotation",
+            "type": "nominal"
+          },
+          "y": {
+            "field": "soe",
+            "type": "ordinal"
+          },
+          "x": {
+            "aggregate": "max",
+            "field": "arrivals_male", 
+            "type": "quantitative"
+          }
+        }
+      }          
+    ]
+  }
+  
