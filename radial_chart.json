@@ -45,7 +45,7 @@
           "color": {
             "field": "Major_Activities",
             "type": "nominal",
-            "scale": {"scheme": "purplebluegreen-7"}
+            "scale": {"scheme": "purplebluegreen"}
           },
           "opacity": {
             "condition": {"param": "Legend_highlight", "value": 0.9},

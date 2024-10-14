@@ -35,6 +35,11 @@
         <!-- Second graph -->
         <div class="graph-container">
             <div id="flowmap"></div>
+        </div> 
+
+        <!-- Ninth graph -->
+        <div class="graph-container">
+            <div id="bumpchart"></div>
         </div>
 
         <div class="title-container">
@@ -118,6 +123,10 @@
         // Embed the eighth graph: radial chart chart 
         var radialchart = "radial_chart.json";
         vegaEmbed("#radialchart", radialchart).catch(console.error);
+
+        // Embed the ninth graph: bump (ranking) chart 
+        var bumpchart = "bumpchart.json";
+        vegaEmbed("#bumpchart", bumpchart).catch(console.error);
     </script>
 </body>
 

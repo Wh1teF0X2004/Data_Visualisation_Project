@@ -98,7 +98,8 @@ p {
 #heatmap_month,
 #heatmap_year,
 #linechart,
-#radialchart {
+#radialchart,
+#bumpchart {
     width: 100%;
     height: auto;
 }

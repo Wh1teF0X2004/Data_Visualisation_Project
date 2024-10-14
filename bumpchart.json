@@ -1,0 +1,142 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 800,
+    "height": 500,
+    "title": {"text": "State Popularity Rankings Over Years", "fontSize": 15},
+    "data": {
+      "url": "./Dataset/ranking_soe_by_popularity.csv"
+    },
+    "view": {"stroke": null},
+    "transform": [{"filter": "datum.rank <= rank_slider"}],
+    "params": [
+      {
+        "name": "rank_slider",
+        "value": 14,
+        "bind": {
+          "input": "range",
+          "min": 5,
+          "max": 14,
+          "step": 1,
+          "name": "Top State Rankings: "
+        }
+      }
+    ],
+    "layer": [
+      {
+        "mark": {"type": "line", "strokeWidth": 3, "opacity": 1},
+        "encoding": {
+          "x": {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year",
+            "axis": {
+              "labelAngle": 0,
+              "labelFontSize": 12,
+              "titleFontSize": 15,
+              "grid": false
+            }
+          },
+          "y": {
+            "field": "rank",
+            "type": "quantitative",
+            "title": "Rank",
+            "scale": {
+              "domain": {"expr": "[1, rank_slider+1]"},
+              "reverse": true,
+              "zero": false
+            },
+            "axis": {
+              "tickCount": 14,
+              "title": "Rank",
+              "grid": false,
+              "tickMinStep": 1,
+              "labelFontSize": 12,
+              "titleFontSize": 15,
+              "values": {"expr": "sequence(1, rank_slider+0.3)"},
+              "format": "d"
+            }
+          },
+          "color": {
+            "field": "soe",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "Johor",
+                "Kedah",
+                "Kelantan",
+                "Melaka",
+                "Negeri Sembilan",
+                "Pahang",
+                "Perak",
+                "Perlis",
+                "Pulau Pinang",
+                "Sabah",
+                "Sarawak",
+                "Selangor",
+                "Terengganu",
+                "W.P. Labuan"
+              ],
+              "range": [
+                "#83777A",
+                "#2A9699",
+                "#D5D5D5",
+                "#A5876F",
+                "#DED1C2",
+                "#7D7858",
+                "#55B5E5",
+                "#D3EDEE",
+                "#EA7C9F",
+                "#C3D0E2",
+                "#40578F",
+                "#D06869",
+                "#E2B9B2",
+                "#DFA24B",
+                "#DFA24B"
+              ]
+            },
+            "legend": {"title": "State of Arrival"}
+          },
+          "opacity": {
+            "condition": {"param": "select_state", "value": 1},
+            "value": 0.2
+          },
+          "detail": {"field": "soe"},
+          "tooltip": [
+            {"field": "soe", "type": "nominal", "title": "State"},
+            {"field": "year", "type": "ordinal", "title": "Year"},
+            {"field": "rank", "type": "quantitative", "title": "Rank"}
+          ]
+        },
+        "params": [
+          {
+            "name": "select_state",
+            "select": {"type": "point", "fields": ["soe"]},
+            "bind": "legend"
+          }
+        ]
+      },
+      {
+        "mark": {"type": "point", "filled": true, "size": 100},
+        "encoding": {
+          "x": {"field": "year", "type": "ordinal"},
+          "y": {"field": "rank", "type": "quantitative"},
+          "color": {"field": "soe", "type": "nominal"},
+          "opacity": {
+            "condition": {"param": "select_state", "value": 1},
+            "value": 0.2
+          },
+          "tooltip": [
+            {"field": "year", "type": "ordinal", "title": "Year"},
+            {"field": "rank", "type": "quantitative", "title": "Rank"},
+            {"field": "soe", "type": "nominal", "title": "State"},
+            {
+              "field": "total_arrivals",
+              "type": "quantitative",
+              "format": ",",
+              "title": "Total Arrivals"
+            }
+          ]
+        }
+      }
+    ]
+  }
