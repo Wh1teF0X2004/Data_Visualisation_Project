@@ -64,7 +64,7 @@
     ],
     "params": [
       {
-        "name": "product_highlight",
+        "name": "visit_purpose",
         "select": {
           "type": "point",
           "fields": ["Main Purpose of Visit"],
@@ -133,35 +133,40 @@
         "bind": "legend"
       }
     ],
-    "mark": {"type": "arc", "innerRadius": 50, "tooltip": true},
-    "encoding": {
-      "theta": {"field": "TotalVisitors", "type": "quantitative"},
-      "radius": {
+    "layer": [
+      {
+        "mark": {"type": "arc", "innerRadius": 30, "tooltip": true},
+        "encoding": {
+          "theta": {"field": "TotalVisitors", "type": "quantitative"},
+          "radius": {
             "field": "TotalVisitors",
-            "scale": {"type": "sqrt", "zero": true, "range": [0, 160]}
+            "type": "quantitative",
+            "scale": {"type": "sqrt", "range": [50, 150]}  
           },
-      "color": {
-        "field": "Main Purpose of Visit",
-        "type": "nominal",
-        "scale": {"scale": {"scheme": "blues"}
+          "color": {
+            "field": "Main Purpose of Visit",
+            "type": "nominal",
+            "scale": {"scheme": "category20"}
+          },
+          "opacity": {
+            "condition": {"param": "legend_highlight", "value": 0.9},
+            "value": 0.2
+          },
+          "tooltip": [
+            {
+              "field": "Main Purpose of Visit",
+              "type": "nominal",
+              "title": "Main Purpose of Visit"
+            },
+            {
+              "field": "TotalVisitors",
+              "type": "quantitative",
+              "title": "Total Visitors (Thousands)",
+              "format": ",.0f"
+            }
+          ]
         }
-      },
-      "opacity": {
-        "condition": {"param": "legend_highlight", "value": 0.9},
-        "value": 0.2
-      },
-      "tooltip": [
-        {
-          "field": "Main Purpose of Visit",
-          "type": "nominal",
-          "title": "Main Purpose of Visit"
-        },
-        {
-          "field": "TotalVisitors",
-          "type": "quantitative",
-          "title": "Total Visitors (Thousands)",
-          "format": ",.0f"
-        }
-      ]
-    }
+      }
+    ]
   }
+  
