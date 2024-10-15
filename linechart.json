@@ -36,6 +36,22 @@
     "layer": [
       {
         "mark": {
+          "type": "text",
+          "fontSize": 80,
+          "dx": -60,
+          "dy": 30,
+          "opacity": 0.05,
+          "align": "left",
+          "baseline": "top"
+        },
+        "encoding": {
+          "text": {
+            "expr": "year_selection"
+          }
+        }
+      },
+      {
+        "mark": {
           "type": "line",
           "point": true
         },
