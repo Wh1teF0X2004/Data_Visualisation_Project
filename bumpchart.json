@@ -78,7 +78,7 @@
                 "#DFA24B"
               ]
             },
-            "legend": {"title": "State of Arrival"}
+            "legend": {"title": "State of Arrival", "orient": "bottom", "direction": "horizontal", "columns": 7}
           },
           "opacity": {
             "condition": {"param": "select_state", "value": 1},

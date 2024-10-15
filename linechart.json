@@ -66,15 +66,59 @@
             "type": "nominal",
             "title": "State of Entry",
             "scale": {
-              "scheme": "category20c"
-            }
+              "domain": [
+                "Johor",
+                "Kedah",
+                "Kelantan",
+                "Melaka",
+                "Negeri Sembilan",
+                "Pahang",
+                "Perak",
+                "Perlis",
+                "Pulau Pinang",
+                "Sabah",
+                "Sarawak",
+                "Selangor",
+                "Terengganu",
+                "W.P. Labuan"
+              ],
+              "range": [
+                "#83777A",
+                "#2A9699",
+                "#D5D5D5",
+                "#A5876F",
+                "#DED1C2",
+                "#7D7858",
+                "#55B5E5",
+                "#D3EDEE",
+                "#EA7C9F",
+                "#C3D0E2",
+                "#40578F",
+                "#D06869",
+                "#E2B9B2",
+                "#DFA24B",
+                "#DFA24B"
+              ]
+            },
+            "legend": {"title": "State of Arrival"}
           },
           "tooltip": [
             { "field": "soe", "type": "nominal", "title": "State of Entry" },
             { "field": "month_num", "type": "ordinal", "timeUnit": "month", "title": "Month" },
             { "field": "total_arrivals", "type": "quantitative", "title": "Total Arrivals", "format": ","}
-          ]
-        }
+          ],
+          "opacity": {
+            "condition": {"param": "select_state_legend", "value": 1},
+            "value": 0.2
+          }
+        },
+        "params": [
+          {
+            "name": "select_state_legend",
+            "select": {"type": "point", "fields": ["soe"]},
+            "bind": "legend"
+          }
+        ]
       }
     ]
   }

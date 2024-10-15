@@ -51,6 +51,14 @@ p {
     color: #1A3C5A;
 }
 
+.text-malaysia {
+    color: #31628e;
+}
+
+.text-nationality-gender {
+    color: #486f91;
+}
+
 .text-container {
     width: 100%;
     max-width: 80rem; 

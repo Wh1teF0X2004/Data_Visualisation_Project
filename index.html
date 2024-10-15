@@ -18,21 +18,20 @@
 <body>
     <main>
         <div class="container">
-            <h1>Tourism Insights: Monthly Foreign Arrivals in Malaysia</h1>
-            <h4>Ever Curious on the status of tourism in Malaysia?</h4>
-            <h3>Here we visualize State-Level Tourism Trends of Malaysia by Nationality and Gender.</h3>
+            <h1 style="margin-bottom: 0.5rem; margin-top: 0.5rem;">Tourism Insights: Monthly Foreign Arrivals in <span class="text-malaysia">Malaysia</span></h1>
+            <h4 style="margin-bottom: 0rem;">Ever Curious on the status of tourism in <span class="text-malaysia">Malaysia</span>?</h4>
+            <h4 style="margin-top: 0rem; margin-bottom: 1rem;">Here we visualize State-Level Tourism Trends of <span class="text-malaysia">Malaysia</span> by <span class="text-nationality-gender">Nationality</span> and <span class="text-nationality-gender">Gender</span>.</h4>
 
             <div class="title-container">
                 <h2>State Popularity and International Arrivals in Malaysia</h2>
-                <p>Discover the tourist appeal of each Malaysian state. Explore where tourists originate.</p>
-                <p>Analyze the most popular Malaysian destinations. Understand the flow of international arrivals and their impact on tourism.</p>
             </div>
 
             <!-- First graph -->
             <div class="graph-container">
                 <div id="proportional_symbol_map"></div>
                 <div class="text-container">
-                    <p>This map shows the distribution of international arrivals to various Malaysian states, represented using proportional symbols. The size of each symbol indicates the volume of tourists visiting a particular state.</p>
+                    <p>Explore the map of international arrivals to <span class="text-malaysia">Malaysia</span>. Discover the distribution of arrivals across <span class="text-malaysia">Malaysian</span> states.</p>
+                    <p style="color: grey;">The size of each symbol indicates the volume of tourists visiting a particular state.</p>
                 </div>
             </div>
 
@@ -40,7 +39,8 @@
             <div class="graph-container">
                 <div id="flowmap"></div>
                 <div class="text-container">
-                    <p>The flow map displays the movement patterns of tourists from their countries of origin to Malaysia. It helps visualize the paths and volumes of international visitors, providing insights into travel trends and preferences.</p>
+                    <p>Explore the top 50 countries of tourist origins. Select a rank range to view countries. Zoom in or out to explore the map!</p>
+                    <p style="color: grey;">Hover your mouse over the purple lines to see the number of visitors from a particular nation. The number of tourists increases with the thickness of the lines.</p>
                 </div>
             </div> 
 
@@ -48,21 +48,23 @@
             <div class="graph-container">
                 <div id="bumpchart"></div>
                 <div class="text-container">
-                    <p>The bump chart illustrates changes in the ranking of states based on their popularity among tourists. It provides a dynamic view of which states have gained or lost favor over time.</p>
+                    <p>Explore the popularity ranking of each <span class="text-malaysia">Malaysian</span> states by the volume of tourist arrivals.</p>
+                    <p><b>Notice the changes from 2020 to 2022.</b> Observe how the COVID-19 pandemic changed state popularity rankings.</p>
+                    <p>This was mostly because of the COVID-19 lockdown. It prevented many people from leaving their country to travel to other nations.</p>
+                    <p style="color: grey;">To see the state's popularity ranking, choose it from the legend. Alternatively, you can use the slider to see ranks over time.</p>
                 </div>
             </div>
 
             <div class="title-container">
                 <h2>Gender Breakdown and State Preferences</h2>
-                <p>Analyze gender distribution among tourists.</p>
-                <p>Uncover travel patterns and highlight popular destinations.</p>
             </div>
 
             <!-- Third graph -->
             <div class="graph-container">
                 <div id="stacked_bar_chart"></div>
                 <div class="text-container">
-                    <p>The stacked bar chart illustrates the gender distribution of tourists across different states. It highlights gender preferences in travel destinations, showcasing the proportion of male and female visitors for each location.</p>
+                    <p>Explore gender distribution across various states. Analyze proportions of male and female tourists by states.</p>
+                    <p style="color: grey;">Annotations will be shows at the end of the bar after selecting a particular state.</p>
                 </div>
             </div>
 
@@ -71,21 +73,21 @@
                 <div class="graph-container" style="flex: 1; width: 42rem;">
                     <div id="radialchart"></div>
                     <div class="text-container" style="max-width: 37rem;">
-                        <p>This radial chart represents the gender distribution of tourists. It provides a circular overview, making it easy to understand the percentage share of each gender across different states.</p>
+                        <p>Uncover travel patterns and highlight popular travel objectives amongst tourists.</p>
+                        <p style="color: grey;">Select tourist activities focus with legends</p>
                     </div>
                 </div>
                 <div class="graph-container" style="flex: 1; width: 42rem; margin-left: 1rem;">
                     <div id="donutchart"></div>
                     <div class="text-container" style="max-width: 37rem;">
-                        <p>The donut chart focuses on the proportions of tourists by gender. It offers a compact view of the data, providing an easy-to-digest summary of male and female tourist ratios.</p>
+                        <p>Explore overall gender distribution of male and female tourist ratios.</p>
+                        <p style="color: grey;">Select gender focus with legends</p>
                     </div>
                 </div>
             </div>
 
             <div class="title-container">
                 <h2>Statewise Analysis by Year and Month</h2>
-                <p>Explore how tourist arrivals vary by state over the years.</p>
-                <p>Gain insights into seasonal and annual trends in tourism across Malaysia.</p>
             </div>
 
             <!-- Fifth and Sixth graphs -->
@@ -93,13 +95,15 @@
                 <div class="graph-container" style="flex: 1; width: 42rem;">
                     <div id="heatmap_month"></div>
                     <div class="text-container" style="max-width: 37rem;">
-                        <p>The monthly heatmap reveals the fluctuations in tourist arrivals across different months. It highlights peak and low seasons, helping to understand the temporal trends in tourism.</p>
+                        <p>Explore monthly fluctuations in tourist arrivals. Identify peak and low seasons within the years easily.</p>
+                        <p style="color: grey;">Note that this is shown by <b>months</b>.</p>
                     </div>
                 </div>
                 <div class="graph-container" style="flex: 1; width: 42rem; margin-left: 1rem;">
                     <div id="heatmap_year"></div>
                     <div class="text-container" style="max-width: 37rem;">
-                        <p>The yearly heatmap showcases long-term trends in tourist arrivals across Malaysian states. It helps in understanding how tourism evolves over the years and provides insights into growth patterns.</p>
+                        <p>Discover long-term trends in tourist arrivals within <span class="text-malaysia">Malaysian</span> states. Gain insights into growth patterns over the years.</p>
+                        <p style="color: grey;">Note that this is shown by <b>year</b>.</p>
                     </div>
                 </div>
             </div>
@@ -108,7 +112,8 @@
             <div class="graph-container">
                 <div id="linechart"></div>
                 <div class="text-container">
-                    <p>The line chart displays the trends of tourist arrivals over time, showing variations across different states. It allows for a comparative view of the rise and fall in tourist numbers throughout the years.</p>
+                    <p>View trends in tourist arrivals over time. Compare tourism activities across different Malaysian states easily.</p>
+                    <p style="color: grey;">View <b>monthly</b> tourism count by within the selected <b>year</b>.</p>
                 </div>
             </div>
         </div>
@@ -120,14 +125,13 @@
             <p style="color: whitesmoke;"><strong>Contact: </strong>kfoo0012@student.monash.edu | nicol.fookaiyan@gmail.com</p>
             <p style="color: whitesmoke;"><strong>Data Source: </strong></p>
             <ul style="color: whitesmoke;">
-                <li>📍 Monthly foreign arrivals by Gender, Nationality and Malaysian State: <a href="https://data.gov.my/data-catalogue/arrivals_soe">https://data.gov.my/data-catalogue/arrivals_soe</a></li>
-                <li>📍 Visiting Objectives: <a href="https://archive.data.gov.my/data/dataset/main-purpose-of-visit">https://archive.data.gov.my/data/dataset/main-purpose-of-visit</a></li>
+                <li>📍 Monthly foreign arrivals by Gender, Nationality and Malaysian State: <a href="https://data.gov.my/data-catalogue/arrivals_soe">https://data.gov.my/data-catalogue/arrivals_soe</a> (Obtained on 10th September 2024 from data.gov.my)</li>
+                <li>📍 Visiting Objectives: <a href="https://archive.data.gov.my/data/dataset/main-purpose-of-visit">https://archive.data.gov.my/data/dataset/main-purpose-of-visit</a> (Obtained on 10th October 2024 from archive.data.gov.my)</li>
             </ul>
             <p style="color: whitesmoke;"><strong>Last Updated: </strong>15th October 2024</p>
         </div>
     </footer>    
  
-
     <script>
         // Embed the first graph: Proportional Symbol Map
         var proportional_symbol_map = "proportional_symbol_map.json";
