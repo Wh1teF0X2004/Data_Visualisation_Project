@@ -1,0 +1,105 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #92A0AD;
+    background-repeat: no-repeat; 
+    background-size: cover; 
+    background-position: center;
+    font-family: 'Baskerville', 'Times New Roman', Times, serif;
+    padding: 2rem; 
+    box-sizing: border-box; 
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto; 
+    text-align: center;
+    padding: 2rem; 
+    font-family: 'Baskerville', 'Times New Roman', Times, serif; 
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem; 
+    color: black;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem; 
+    color: black;
+}
+
+h3 {
+    font-size: 2.0rem;
+    margin-bottom: 1rem; 
+    color: black;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; 
+    color: black;
+}
+
+p {
+    font-size: 1rem;
+    color: black;
+}
+
+.text-container {
+    width: 85rem;
+    height: auto;
+    overflow: auto; 
+    background-color: #c7c7c783;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.text-container-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; 
+}
+
+.title-container {
+    background-color: #355c81af; 
+    color: white;
+    font-size: 3.0rem;
+    text-shadow: whitesmoke;
+    width: 85rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.graph-container {
+    background-color: #c7c7c783; 
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 15px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 85rem; 
+    height: auto;
+    max-width: 85rem;
+    box-sizing: border-box; 
+}
+
+#proportional_symbol_map,
+#proportional_symbol_map_world,
+#stacked_bar_chart,
+#donutchart,
+#heatmap_month,
+#heatmap_year,
+#linechart,
+#radialchart,
+#bumpchart {
+    width: 100%;
+    height: auto;
+}

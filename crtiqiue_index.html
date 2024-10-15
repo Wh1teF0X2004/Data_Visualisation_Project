@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <link rel="stylesheet" href="./styles.css">
+
+    <title>Ever Curious on the status of tourism in Malaysia?</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tourism Insights: Monthly Foreign Arrivals in Malaysia</h1>
+        <h4>Ever Curious on the status of tourism in Malaysia?</h4>
+        <h3>Here we visualise State-Level Tourism Trends of Malayisa by Nationality and Gender.</h3>
+
+        <div class="title-container">
+            <h2>State Popularity and International Arrivals in Malaysia</h2>
+            <p>Discover the tourist appeal of each Malaysian state. Explore where tourists originate.</p>
+            <p>Analyze the most popular Malaysian destinations. Understand the flow of international arrivals and their impact on tourism.</p>
+        </div>
+
+        <!-- First graph -->
+        <div class="graph-container">
+            <div id="proportional_symbol_map"></div>
+        </div>
+
+        <!-- Second graph -->
+        <div class="graph-container">
+            <div id="flowmap"></div>
+        </div> 
+
+        <!-- Ninth graph -->
+        <div class="graph-container">
+            <div id="bumpchart"></div>
+        </div>
+
+        <div class="title-container">
+            <h2>Gender Breakdown and State Preferences</h2>
+            <p>Analyze gender distribution among tourists.</p>
+            <p>Uncover travel patterns and highlight popular destinations.</p>
+        </div>
+
+        <!-- Third graph -->
+        <div class="graph-container">
+            <div id="stacked_bar_chart"></div>
+            <p><strong>Map Idiom: </strong>Stacked Bar Chart</p>
+        </div>
+
+        <!-- Eighth and Fourth graphs -->
+        <div style="display: flex; gap: 2rem;">
+            <div class="graph-container" style="flex: 1; width: 41.5rem;">
+                <div id="radialchart"></div>
+            </div>
+            <div class="graph-container" style="flex: 1; width: 41.5rem;">
+                <div id="donutchart"></div>
+            </div>
+        </div>
+
+        <div class="title-container">
+            <h2>Statewise Analysis by Year and Month</h2>
+            <p>Explore how tourist arrivals vary by state over the years.</p>
+            <p>Gain insights into seasonal and annual trends in tourism across Malaysia.</p>
+        </div>
+
+        <!-- Fifth and Sixth graphs -->
+        <div style="display: flex; gap: 2rem;">
+            <div class="graph-container" style="flex: 1; width: 41.5rem;">
+                <div id="heatmap_month"></div>
+            </div>
+            <div class="graph-container" style="flex: 1; width: 41.5rem;">
+                <div id="heatmap_year"></div>
+            </div>
+        </div>
+
+        <!-- Seventh graph -->
+        <div class="graph-container">
+            <div id="linechart"></div>
+        </div>
+
+        <p><strong>Author: </strong>Foo Kai Yan (33085625)</p>
+        <p><strong>Contact: </strong>kfoo0012@student.monash.edu OR nicol.fookaiyan@gmail.com</p>
+        <p><strong>Data Source: </strong></p>
+        <ul>
+            <li>Monthly foreign arrivals by Gender, Nationality and Malaysian State: <a href="https://data.gov.my/data-catalogue/arrivals_soe"> https://data.gov.my/data-catalogue/arrivals_soe</a></li>
+            <li>Visting Objectives: <a href="https://archive.data.gov.my/data/dataset/main-purpose-of-visit"> https://archive.data.gov.my/data/dataset/main-purpose-of-visit </a></li>
+        </ul>
+        <p><strong>Last Updated: </strong>14th October 2024</p>
+    </div>
+
+    <script>
+        // Embed the first graph: Proportional Symbol Map
+        var proportional_symbol_map = "proportional_symbol_map.json";
+        vegaEmbed("#proportional_symbol_map", proportional_symbol_map).catch(console.error);
+
+        // Embed the second graph: Flow Map
+        var flowmap = "flowmap.json";
+        vegaEmbed("#flowmap", flowmap).catch(console.error);
+
+        // Embed the third graph: Stacked Bar Chart
+        var stacked_bar_chart = "stacked_bar_chart.json";
+        vegaEmbed("#stacked_bar_chart", stacked_bar_chart).catch(console.error);
+
+        // Embed the fourth graph: Heatmap - Month
+        var donutchart = "donutchart_gender.json";
+        vegaEmbed("#donutchart", donutchart).catch(console.error);
+
+        // Embed the fifth graph: Heatmap - Month
+        var heatmap_month = "heatmap_month.json";
+        vegaEmbed("#heatmap_month", heatmap_month).catch(console.error);
+
+        // Embed the sixth graph: Heatmap - Year
+        var heatmap_year = "heatmap_year.json";
+        vegaEmbed("#heatmap_year", heatmap_year).catch(console.error);
+
+        // Embed the seventh graph: multi-linear chart 
+        var linechart = "linechart.json";
+        vegaEmbed("#linechart", linechart).catch(console.error);
+
+        // Embed the eighth graph: radial chart chart 
+        var radialchart = "radial_chart.json";
+        vegaEmbed("#radialchart", radialchart).catch(console.error);
+
+        // Embed the ninth graph: bump (ranking) chart 
+        var bumpchart = "bumpchart.json";
+        vegaEmbed("#bumpchart", bumpchart).catch(console.error);
+    </script>
+</body>
+
+</html>

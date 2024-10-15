@@ -15,84 +15,123 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: auto; 
     text-align: center;
-    padding: 2rem; 
-    font-family: 'Baskerville', 'Times New Roman', Times, serif; 
+    padding: 2rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 85rem; 
 }
 
 h1 {
     font-size: 3.5rem;
-    margin-bottom: 1rem; 
-    color: black;
+    margin-bottom: 1.5rem; 
+    color: #1A3C5A;
 }
 
 h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem; 
-    color: black;
+    color: #1A3C5A;
 }
 
 h3 {
-    font-size: 2.0rem;
+    font-size: 2rem;
     margin-bottom: 1rem; 
-    color: black;
+    color: #1A3C5A;
 }
 
 h4 {
     font-size: 1.5rem;
     margin-bottom: 1rem; 
-    color: black;
+    color: #1A3C5A;
 }
 
 p {
     font-size: 1rem;
-    color: black;
+    color: #1A3C5A;
 }
 
 .text-container {
-    width: 85rem;
-    height: auto;
-    overflow: auto; 
-    background-color: #c7c7c783;
-    padding: 1rem;
+    width: 100%;
+    max-width: 80rem; 
+    background-color: #C7D2E0;
+    padding: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 2rem;
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-}
-
-.text-container-wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem; 
+    text-align: center;
 }
 
 .title-container {
     background-color: #355c81af; 
     color: white;
-    font-size: 3.0rem;
-    text-shadow: whitesmoke;
-    width: 85rem;
+    width: 100%;
+    max-width: 85rem; 
     padding: 1rem;
     margin-bottom: 2rem;
-    border-radius: 15px; 
+    border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    text-align: center;
 }
 
 .graph-container {
-    background-color: #c7c7c783; 
+    background-color: #E3E9F2; 
+    width: 100%;
+    max-width: 85rem; 
     padding: 1rem;
     margin-bottom: 2rem;
-    border-radius: 15px; 
+    border-radius: 10px; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    width: 85rem; 
-    height: auto;
-    max-width: 85rem;
     box-sizing: border-box; 
+    text-align: center;
+}
+
+.footer {
+    background-color: #000000; 
+    color: #ffffff;
+    padding: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 2rem;
+}
+
+.footer-content {
+    max-width: 85rem; 
+    margin: 0 auto;
+    text-align: left; 
+}
+
+.footer-content p, 
+.footer-content ul {
+    margin: 0.5rem 0;
+    line-height: 1.5; 
+}
+
+.footer-content a {
+    color: #ffffff; 
+    text-decoration: none; 
+}
+
+.footer-content a:hover {
+    text-decoration: underline;
+}
+
+.footer-content span {
+    font-weight: bold; 
+}
+
+.footer-content ul {
+    list-style-type: none; 
+    padding: 0; 
+}
+
+.footer-content li {
+    margin: 0.3rem 0; 
 }
 
 #proportional_symbol_map,
-#proportional_symbol_map_world,
+#flowmap,
 #stacked_bar_chart,
 #donutchart,
 #heatmap_month,
@@ -101,5 +140,5 @@ p {
 #radialchart,
 #bumpchart {
     width: 100%;
-    height: auto;
+    height: 500px;
 }
